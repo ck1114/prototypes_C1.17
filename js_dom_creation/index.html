@@ -41,10 +41,41 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
+            var h1 = $("<h1>").text("I am a heading");
+            var p1 = $("<p>").text("This is an awesome paragraph");
+            var p2 = $("<p>",{
+                text: "This has red text",
+                style: "color:red",
+            });
+            $(".playground_destination#playground1").append(h1, p1, p2);
 
             //playground 2 code
+            var pg2Div1 = $("<div>").addClass("awesome_class").text("Here is some awesome div text");
+            var pg2Div2 = $("<diV>").addClass("awesome_class").attr("id", "my_awesome_div2").text("Here is MORE awesome div text");
+            var pg2Div3 = $("<div>").addClass("awesome_class").attr("id", "my_awesome_div3").attr("data-coolness", "high").html("Here is <strong>EVEN MORE</strong> awesome div text");
+            $("#playground2.playground_destination").append(pg2Div1, pg2Div2, pg2Div3);
+            //$(pg2Div1, pg2Div2, pg2Div3).appendTo("#playground2.playground_destination");
+            //$(pg2Div1, pg2Div2, pg2Div3).appendTo(".playground_destination#playground2");
+            //$(pg2Div1, pg2Div2, pg2Div3).appendTo(".playground_destination#playground2");
+            //(pg2Div1, pg2Div2, pg2Div3).appendTo(".playground_destination#playground2");
 
             //playground 3 code
+            var pg3_ul = $("<ul>").addClass("neato");
+            var pg3_1st_li = $("<li>").text("Link 1");
+            var pg3_2nd_li = $("<li>").text("Link 2");
+            var pg3_3rd_li = $("<li>").text("Link 3");
+            var pg3_figure = $("<figure>").addClass("awesome_picture");
+            //var pg3_img = $("<img>").attr("src", "http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg");
+            var pg3_img = $("<img>", {
+                src: "http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg"
+            });
+            //var pg3_figcaption = $("<figcaption>").html("That's right, <span class="bold_text">you are</span>");
+            var pg3_figcaption= $("<figcaption>", {
+                html: "That's right, you are"
+            });
+            $(".playground_destination#playground3").append(pg3_ul, pg3_figure);
+            $(pg3_ul).append(pg3_1st_li, pg3_2nd_li, pg3_3rd_li);
+            $(pg3_figure).append(pg3_img, pg3_figcaption);
         });
     </script>
 </head>
