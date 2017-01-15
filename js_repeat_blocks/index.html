@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //Start Feature Set 1 below
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for(var i=0; i<numbers.length; i++){
+            console.log(numbers[i]);
+        }
+
+        //following is the 'for loop' for the numbers 10-1 in descending order
+        for(var i=9; i<=numbers.length; i--){
+            console.log(numbers[i]);
+        }
+        console.log("**following is the output of odd numbers from 1-10**")
+        for(var i=0; i<numbers.length; i++){
+            console.log(numbers[i++]);
+        }
+        var mixedArray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+        for(var i=0; i<mixedArray.length; i++) {
+            console.log(mixedArray[i++]);
+        }
+        //the for loop above doesn't output only the odd numbers, so
+        for(var i=0; i<mixedArray.length; i++) {
+            if(mixedArray[i]%2 == 1){
+                console.log(mixedArray[i]);
+            }
+        }
+
+        //Start Feature Set 2 below
+        var classRoom = {desk1: 'Stu', desk2: 'Peggy', desk3: 'LoneStar', desk4: 'George', desk5: 'Sheldon'}
+        for(var desk in classRoom){
+            console.log(classRoom[desk]+ " is at " + desk);
+        }
+
+        //Start Feature Set 3 below
+        var studentArray = [{name: "Bob", grade: 87}, {name: "Fred", grade: 82}, {name: "George", grade: 93}, {name: "Robert", grade: 85}];
+        function findStudent(studentName){
+            var i=0;
+            while(i<studentArray.length){
+                if(studentArray[i].name == studentName){
+                    return "Found " + studentArray[i].name + " their grade is " + studentArray[i].grade + ".";
+                }
+                i++;
+            }
+            return "Student " + studentName + " not found.";
+
+        }
+        console.log("Test 1:", findStudent("George"));
+        console.log("Test 2:", findStudent("Fred"));
+        console.log("Test 3:", findStudent("Hank"));
+        console.log("Test 4:", findStudent("Charles"));
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
