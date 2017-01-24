@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function coin_stack(starting_amount){
+            this.value = starting_amount;
+            this.add_coins = function(coins_added){
+                this.value += coins_added;
+            }
+            this.remove_coins = function(coins_removed){
+                if(this.value >= coins_removed){
+                    this.value -= coins_removed;
+                    return coins_removed;
+                }
+                else if(this.value < coins_removed){
+                    coins_removed = this.value;
+                    this.value = 0;
+                    return coins_removed;
+                }
+            }
+        }
+        coin_stack.prototype.transfer_coins = function(from_obj, amount){
+            var amount_removed = from_obj.remove_coins(amount)
+            return this.value += amount_removed;
+        }
+        var my_coin_stack = new coin_stack(50);
+        console.log("my_coin_stack contains ", my_coin_stack.value, " coins");
+        my_coin_stack.add_coins(15);
+        console.log("I have ",my_coin_stack.value, " coins in my coin stack");
+        my_coin_stack.remove_coins(37);
+        console.log("I have ",my_coin_stack.value, " coins in my coin stack");
+        my_coin_stack.remove_coins(55);
+        console.log("I have ",my_coin_stack.value, " coins in my coin stack");
+
+        var erics_coins = new coin_stack(50);
+        var dans_coins = new coin_stack(50);
+        console.log("Eric's stack contains ", erics_coins.value, " coins");
+        console.log("Dan's stack constains ", dans_coins.value, " coins");
+        erics_coins.transfer_coins(dans_coins, 30);
+        console.log("Eric's stack now contains ", erics_coins.value, " coins");
+        console.log("Dan's stack now contains ", dans_coins.value, " coins");
+        dans_coins.transfer_coins(erics_coins, 120);
+        console.log("Dan's stack now has ",dans_coins.value, " coins and Eric's stack now has ", erics_coins.value, " coins");
+    </script>
+</head>
+<body>
+    <h1>Javascript OOP Prototype</h1>
+</body>
+</html>
