@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        function ajaxCall(){
+            $.ajax({
+                dataType: "json",
+                data: {
+                    checkbox: $(".checkbox").val(),
+                    textarea: $(".textarea").val()
+                },
+                method: "post",
+                url: "http://localhost/prototypes_C1.17/php_superglobals/index.php",
+                success: function(response){
+                    console.log("ajax call success", response);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input class="checkbox" type="checkbox" value="howdy">
+        <textarea class="textarea" rows="4" cols="30"></textarea>
+        <button type="button" value="submit" onclick="ajaxCall()">submit</button>
+    </form>
+</body>
+</html>
