@@ -47,7 +47,7 @@
         }
 
         this.commentCharacters = function(){
-            if (this.maxLength - this.form.comments.length > 0){
+            if (this.form.comments == undefined){
                 return false;
             }
             return this.maxLength - this.form.comments.length <=0;
